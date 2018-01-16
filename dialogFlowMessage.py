@@ -27,4 +27,4 @@ class DialogFlowMessage:
             p = self.js['result']['parameters'][""+name]
         if p == "":
             return None
-            return p
+        return p

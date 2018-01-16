@@ -64,4 +64,4 @@ class Query:
         return Response(response=response,
                         status=200,
                         mimetype="application/json")
-# endregion
+    # endregion

@@ -11,7 +11,7 @@ class XkcdReq:
     API_URL = "https://xkcd.com/"
     SUFFIX = "info.0.json"
 
-    def getPost(self, i, rand=False):
+    def get_post(self, i, rand=False):
         url = self.API_URL + "/" + i + "/" + self.SUFFIX
         data = Query.make_json_request(url)
         buttons = {'next': "xkcd " + str(int(i) + 1)}
@@ -27,15 +27,15 @@ class XkcdReq:
             )
         return query
 
-    def getRandom(self):
-        data = self.queryLastPost()
+    def get_random(self):
+        data = self.query_last_post()
         id = data['num']
         post_id = randint(1, id)
-        data = self.getPost(str(post_id), True)
+        data = self.get_post(str(post_id), True)
         return data
 
-    def getLastPost(self):
-        data = self.queryLastPost()
+    def get_last_post(self):
+        data = self.query_last_post()
         buttons = {'random': "xkcd random"}
         buttons['previous'] = "xkcd "+ str(data['num'] -1)
         query = Query.send_card(
@@ -45,7 +45,7 @@ class XkcdReq:
             buttons)
         return query
 
-    def queryLastPost(self):
+    def query_last_post(self):
         url = self.API_URL + self.SUFFIX
         data = Query.make_json_request(url)
         return data
