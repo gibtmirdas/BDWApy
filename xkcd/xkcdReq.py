@@ -13,8 +13,8 @@ class XkcdReq:
 
     def get_post(self, i, rand=False):
         url = self.API_URL + "/" + i + "/" + self.SUFFIX
-        data = Query.make_json_request(url)
-        buttons = {'next': "xkcd " + str(int(i) + 1)}
+        data = Query.make_json_request(urls)
+        buttons = {'next': "xkcd " + str(int(j) + 1)}
         if rand:
             buttons['random'] = 'xkcd random'
         buttons['previous'] = "xkcd " + str(int(i) - 1)
