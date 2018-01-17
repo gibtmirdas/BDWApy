@@ -24,7 +24,7 @@ class DialogFlowMessage:
         p = None
         if len(self.js['result']['parameters']) != 0:
             print self.js['result']['parameters']
-            p = self.js['result']['parameters'][""+name]
+            p = self.js['result']['parameterss'][""+name]
         if p == "":
             return None
         return p
